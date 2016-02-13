@@ -1,3 +1,8 @@
+/*
+ * Brandon Berrios and Bilal Bari
+ * CS 213 Assignment 1
+ */
+
 package application;
 
 import java.io.IOException;
@@ -13,13 +18,13 @@ import javafx.stage.Stage;
 import model.Song;
 import view.SongOverviewController;
 
-public class MainApp extends Application {
+public class SongLib extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
     public ObservableList<Song> songData = FXCollections.observableArrayList();
 
-    public MainApp() {
+    public SongLib() {
     	songData.add(new Song("Hans", "Muster"));
         songData.add(new Song("Ruth", "Mueller"));
         songData.add(new Song("Heinz", "Kurz"));
@@ -52,7 +57,7 @@ public class MainApp extends Application {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("../view/RootLayout.fxml"));
+            loader.setLocation(SongLib.class.getResource("../view/RootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
@@ -71,7 +76,7 @@ public class MainApp extends Application {
         try {
             // Load song overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("../view/SongOverview.fxml"));
+            loader.setLocation(SongLib.class.getResource("../view/SongOverview.fxml"));
             AnchorPane songOverview = (AnchorPane) loader.load();
 
             // Set person overview into the center of root layout.

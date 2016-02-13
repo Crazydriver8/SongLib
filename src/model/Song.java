@@ -1,3 +1,8 @@
+/*
+ * Brandon Berrios and Bilal Bari
+ * CS 213 Assignment 1
+ */
+
 package model;
 
 import javafx.beans.property.SimpleStringProperty;

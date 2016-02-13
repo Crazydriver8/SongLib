@@ -57,8 +57,8 @@
                   </GridPane>
                   <ButtonBar layoutX="155.0" layoutY="244.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <buttons>
-                      <Button mnemonicParsing="false" text="New..." />
-                        <Button mnemonicParsing="false" text="Edit..." />
+                      <Button mnemonicParsing="false" onAction="#newSong" text="New..." />
+                        <Button mnemonicParsing="false" onAction="#editSong" text="Edit..." />
                         <Button mnemonicParsing="false" onAction="#deleteSong" text="Delete" />
                     </buttons>
                   </ButtonBar>

@@ -1,6 +1,11 @@
+/*
+ * Brandon Berrios and Bilal Bari
+ * CS 213 Assignment 1
+ */
+
 package view;
 
-import application.MainApp;
+import application.SongLib;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -27,7 +32,7 @@ public class SongOverviewController {
     private TextField songYearLabel;
 
     // Reference to the main application.
-    private MainApp mainApp;
+    private SongLib mainApp;
 
     /**
      * The constructor.
@@ -130,7 +135,7 @@ public class SongOverviewController {
      * 
      * @param mainApp
      */
-    public void setMainApp(MainApp mainApp) {
+    public void setMainApp(SongLib mainApp) {
         this.mainApp = mainApp;
 
         // Add observable list data to the table
