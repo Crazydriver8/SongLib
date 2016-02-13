@@ -17,7 +17,7 @@ public class MainApp extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
-    private ObservableList<Song> songData = FXCollections.observableArrayList();
+    public ObservableList<Song> songData = FXCollections.observableArrayList();
 
     public MainApp() {
     	songData.add(new Song("Hans", "Muster"));
@@ -71,7 +71,7 @@ public class MainApp extends Application {
         try {
             // Load song overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("../view/songoverview.fxml"));
+            loader.setLocation(MainApp.class.getResource("../view/SongOverview.fxml"));
             AnchorPane songOverview = (AnchorPane) loader.load();
 
             // Set person overview into the center of root layout.

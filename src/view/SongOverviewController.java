@@ -4,9 +4,9 @@ import application.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import model.Song;
 
 public class SongOverviewController {
@@ -18,17 +18,16 @@ public class SongOverviewController {
     private TableColumn<Song, String> songArtistColumn;
 
     @FXML
-    private Label songTitleLabel;
+    private TextField songTitleLabel;
     @FXML
-    private Label songArtistLabel;
+    private TextField songArtistLabel;
     @FXML
-    private Label songAlbumLabel;
+    private TextField songAlbumLabel;
     @FXML
-    private Label songYearLabel;
+    private TextField songYearLabel;
 
     // Reference to the main application.
-    @SuppressWarnings("unused")
-	private MainApp mainApp;
+    private MainApp mainApp;
 
     /**
      * The constructor.
@@ -66,6 +65,66 @@ public class SongOverviewController {
     	}
     }
     
+    @FXML
+    private void editSong() {
+    	int index = songTable.getSelectionModel().getSelectedIndex();
+    	Song song = songTable.getSelectionModel().getSelectedItem();
+    	if (song == null) {
+    		Alert alert = new Alert(AlertType.WARNING);
+            alert.initOwner(mainApp.getPrimaryStage());
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Song Selected");
+            alert.setContentText("Please select a song in the table.");
+
+            alert.showAndWait();
+    	}
+    	if (songTitleLabel.getText() != null) {
+    		song.setSongTitle(songTitleLabel.getText());
+    	} else {
+    		songTitleLabel.setText("Need this value");
+    		return;
+    	}
+    	if (songArtistLabel.getText() != null) {
+    		song.setSongArtist(songArtistLabel.getText());
+    	} else {
+    		songTitleLabel.setText("Need this value");
+    		return;
+    	}
+    	if (songAlbumLabel.getText() != null) {
+    		song.setSongAlbum(songAlbumLabel.getText());
+    	}
+    	if (songYearLabel.getText() != null) {
+    		song.setSongYear(songYearLabel.getText());
+    	}
+    	mainApp.songData.set(index, song);
+    	showSongDetails(song);
+    }
+    
+    @FXML
+    private void newSong() {
+    	Song song = new Song();
+    	if (songTitleLabel.getText() != null) {
+    		song.setSongTitle(songTitleLabel.getText());
+    	} else {
+    		songTitleLabel.setText("Need this value");
+    		return;
+    	}
+    	if (songArtistLabel.getText() != null) {
+    		song.setSongArtist(songArtistLabel.getText());
+    	} else {
+    		songTitleLabel.setText("Need this value");
+    		return;
+    	}
+    	if (songAlbumLabel.getText() != null) {
+    		song.setSongAlbum(songAlbumLabel.getText());
+    	}
+    	if (songYearLabel.getText() != null) {
+    		song.setSongYear(songYearLabel.getText());
+    	}
+    	mainApp.getSongData().add(song);
+    	
+    }
+    
     /**
      * Is called by the main application to give a reference back to itself.
      * 
@@ -80,10 +139,18 @@ public class SongOverviewController {
     
     private void showSongDetails (Song song) {
     	if (song != null) {
-    		songTitleLabel.setText(song.getSongTitle());
-    		songArtistLabel.setText(song.getSongArtist());
-    		songAlbumLabel.setText(song.getSongAlbum());
-    		songYearLabel.setText(song.getSongYear());
+    		if (song.getSongTitle() != null) {
+    			songTitleLabel.setText(song.getSongTitle());
+    		}
+    		if (song.getSongArtist() != null) {
+    			songArtistLabel.setText(song.getSongArtist());
+    		}
+    		if (song.getSongAlbum() != null) {
+    			songAlbumLabel.setText(song.getSongAlbum());
+    		}
+    		if (song.getSongYear() != null) {
+    			songYearLabel.setText(song.getSongYear());
+    		}
     	} else {
     		songTitleLabel.setText("");
     		songArtistLabel.setText("");

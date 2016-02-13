@@ -6,6 +6,7 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -45,19 +46,19 @@
                     </rowConstraints>
                      <children>
                         <Label text="Song Title" />
-                        <Label fx:id="songTitleLabel" text="Label" GridPane.columnIndex="1" />
                         <Label text="Song Artist" GridPane.rowIndex="1" />
-                        <Label fx:id="songArtistLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="Song Album" GridPane.rowIndex="2" />
-                        <Label fx:id="songAlbumLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label text="Song Year" GridPane.rowIndex="3" />
-                        <Label fx:id="songYearLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="songTitleLabel" GridPane.columnIndex="1" />
+                        <TextField fx:id="songArtistLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="songAlbumLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="songYearLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                   <ButtonBar layoutX="155.0" layoutY="244.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <buttons>
-                      <Button mnemonicParsing="false" text="New..." />
-                        <Button mnemonicParsing="false" text="Edit..." />
+                      <Button mnemonicParsing="false" onAction="#newSong" text="New..." />
+                        <Button mnemonicParsing="false" onAction="#editSong" text="Edit..." />
                         <Button mnemonicParsing="false" onAction="#deleteSong" text="Delete" />
                     </buttons>
                   </ButtonBar>
